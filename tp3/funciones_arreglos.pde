@@ -10,7 +10,7 @@ void pantalla0() {
 }
 
 void botoninicio() {
-
+pushMatrix();
   rectMode(CENTER);
   fill(0, 125, 175);
   stroke(0, 65, 175);
@@ -20,6 +20,7 @@ void botoninicio() {
   textSize(25);
   fill(colorboton);
   text("Iniciar", 210, 430);
+popMatrix();
 }
 
 void botoncreditos() {
@@ -31,7 +32,7 @@ void botoncreditos() {
 void pantallacreditos() {
 
   fill(0, 25, 150);  
-  rect(0, 0, 500, 500);
+  rect(0, 0, 1000,1000);
   fill(255);  
   textAlign(CENTER);
   textFont(titulo);

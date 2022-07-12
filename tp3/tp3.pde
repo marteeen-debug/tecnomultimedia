@@ -2,7 +2,8 @@ PFont titulo;
 PImage autofondo;
 PImage autojugador;
 int colorboton=255;
-int pantalla0=1, pantalla1=0;
+int pantalla0=0, pantalla1=0;
+int reiniciopantalla = 0;
 int giro;
 int adelante;
 int atras;
@@ -17,24 +18,38 @@ void setup() {
 
 void draw() {
   // pantallacreditos();
-  pantalla0();
-  botoninicio();
-  botoncreditos();
+
+
   // pantallajuego();
 
   //pantallacreditos();
-
-  if (pantalla1==1) {
+  if (pantalla0==0 && pantalla1==1 ) {
     pantallacreditos();
+  }
+  if (pantalla0==0 && pantalla1==0) {
+
+    pantalla0();
+    botoninicio();
+    botoncreditos();
+  }
+  if (reiniciopantalla == 1 ) {
+    pantalla0();
+    botoncreditos();
+    botoninicio();
+   
   }
 }
 void mouseClicked() {
   if (mouseX > 300 && mouseY > 400 && mouseX<500 && mouseY<500) {
     pantalla1 = 1;
+    pantalla0 = 0;
   }
 }
 
 void keyPressed() {
+  if (key== 'r') {
+      reiniciopantalla = 1;
+    }
   if (key == CODED) {
     if (keyCode == LEFT) {
       giro--;
@@ -45,5 +60,7 @@ void keyPressed() {
     } else if (keyCode== DOWN) {
       adelante++;
     }
+
+    
   }
 }
